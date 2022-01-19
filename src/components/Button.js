@@ -10,7 +10,7 @@ export default function Button(props) {
    }
 
    if (props.danger) {
-      buttonClass += "button--danger";
+      buttonClass += " button--danger";
    }
 
    return (
