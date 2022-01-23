@@ -6,7 +6,16 @@ import "components/Application.scss";
 
 import DayList from "components/DayList";
 
-import Appointment from "components/Appointment";
+//import Appointment from "components/Appointment";
+
+//import useVisualMode from "hooks/useVisualMode";
+
+const EMPTY = "EMPTY";
+const SHOW = "SHOW";
+
+const { mode, transition, back } = useVisualMode(
+  props.interview ? SHOW : EMPTY
+);
 
 //Jan. 23
 const [days, setDays] = useState([]);
