@@ -13,7 +13,9 @@ const [days, setDays] = useState([]);
 
 useEffect(() => {
   const days = axios.get("/api/days")
+  console.log(days);
   const appointments = axios.get("/api/appointments")
+  const interviewers = axios.get("/api/interviewers")
   Promise.all([
     Promise.resolve(days),
     Promise.resolve(appointments)
@@ -103,11 +105,20 @@ useEffect(() => {
 
     const [day, setDay] = useState("Monday");
 
-    const schedules = appointments.map(appointment => {
+    const appointments = getAppointmentsForDay(state, day);
+
+    const schedule = appointments.map((appointment) => {
+      const interview = getInterview(state, appointment.interview);
+
       return (
-        <Appointment key={appointment.id} {...appointment} />
-      )
-    })
+        <Appointment
+          key={appointment.id}
+          id={appointment.id}
+          time={appointment.time}
+          interview={interview}
+        />
+      );
+    });
 
     return (
       <main className="layout">
