@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import axios from "axios";
 
 import "components/Application.scss";
 
@@ -6,25 +8,34 @@ import DayList from "components/DayList";
 
 import Appointment from "components/Appointment";
 
-// const [day, setDay] = useState('Monday');
+//Jan. 23
+const [day, setDay] = useState([]);
+
+useEffect(() => {
+  const days = axios.get("/api/days")
+    .then(() => {
+      console.log(days);
+    })
+
+}, [])
 // console.log(day);
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
+// const days = [
+//   {
+//     id: 1,
+//     name: "Monday",
+//     spots: 2,
+//   },
+//   {
+//     id: 2,
+//     name: "Tuesday",
+//     spots: 5,
+//   },
+//   {
+//     id: 3,
+//     name: "Wednesday",
+//     spots: 0,
+//   },
+// ];
 
 const appointments = [
   {
