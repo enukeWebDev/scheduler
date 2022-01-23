@@ -1,4 +1,4 @@
-export function getAppointnmentsForDay(state, day) {
+export function getAppointmentsForDay(state, day) {
   const days = state.days;
   const appointments = state.appointments;
   const result = [];
@@ -22,5 +22,20 @@ export function getInterview(state, interview) {
   result["students"] = interview.student;
   result["interviewer"] = interviewers[interview.interviewer];
 
+  return result;
+}
+
+export function getInterviewersForDay(state, day) {
+  const days = state.days;
+  const interviewers = state.interviewers;
+  const result = [];
+
+  for (let weekday of days) {
+    if (weekday.name === day) {
+      for (let interviewersDay of weekday.interviewers) {
+        result.push(interviewers[interviewersDay]);
+      }
+    }
+  }
   return result;
 }
