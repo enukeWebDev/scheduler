@@ -186,7 +186,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
-
+        deleteInterview={deleteInterview}
       />
     )
   })
