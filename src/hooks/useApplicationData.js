@@ -45,7 +45,10 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
 
-    return axios.put(`/api/appointments/${id}`, { interview });
+    return axios.put(`/api/appointments/${id}`, { interview })
+      .then(() => {
+        console.log(interview);
+      })
   }
 
 
@@ -61,7 +64,10 @@ export default function useApplicationData(props) {
       [id]: appointment
     };
 
-    return axios.delete(`/api/appointments/${id}`);
+    return axios.delete(`/api/appointments/${id}`)
+      .then(() => {
+        console.log(id);
+      })
   }
 
   return {
