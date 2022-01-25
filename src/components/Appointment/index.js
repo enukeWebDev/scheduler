@@ -19,6 +19,9 @@ const CREATE = "CREATE";
 const SAVING = "SAVING";
 const DELETE = "DELETE";
 const CONFIRM = "CONFIRM";
+const EDIT = "EDIT";
+const ERROR_SAVE = "ERROR_SAVE";
+const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
 
@@ -36,22 +39,17 @@ export default function Appointment(props) {
     transition(SAVING);
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
-      .catch(error => {
-        console.log(error);
-      })
-
+      .catch(error => { transition(ERROR_SAVE, true) })
   }
 
-  function cancelInterview() {
+  function deleteAppointment() {
     transition(DELETE, true);
     props.deleteInterview(props.id)
       .then(() => transition(EMPTY))
-      .catch(error => {
-        console.log(error);
-      })
+      .catch(error => { transition(ERROR_DELETE, true) })
   }
 
-  function confirmCancelInterview() {
+  function confirmDeleteInterview() {
     transition(CONFIRM);
   }
 
@@ -68,12 +66,16 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
+          onDelete={confirmDeleteInterview}
+          onEdit={() => transition(EDIT)}
         />
       )}
 
       {mode === CREATE && (
         <Form
           interviewers={props.interviewers}
+          onSave={save}
+          onCancel={() => back()}
         />
       )}
 
@@ -92,10 +94,33 @@ export default function Appointment(props) {
       {mode === CONFIRM && (
         <Confirm
           onCancel={() => back()}
-          onConfirm={cancelInterview}
+          onConfirm={deleteAppointment}
         />
       )}
-      {/*props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer} /> : <Empty />*/}
+
+      {mode === EDIT && (
+        <Form
+          name={props.interview.student}
+          interviewers={props.interviewers}
+          interviewer={props.interview.interviewer.id}
+          onSave={save}
+          onCancel={() => { back() }}
+        />
+      )}
+
+      {mode === ERROR_SAVE && (
+        <Error
+          message="Error"
+          onClose={() => back()}
+        />
+      )}
+
+      {mode === ERROR_DELETE && (
+        <Error
+          message="Error"
+          onClose={() => back()}
+        />
+      )}
 
     </article>
   )

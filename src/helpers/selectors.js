@@ -39,3 +39,13 @@ export function getInterviewersForDay(state, day) {
   }
   return result;
 }
+
+export default function searchDayByAppointment(id, state) {
+  for (let i = 0; i < state.days.length; i++) {
+    for (let prop of state.days[i].appointments) {
+      if (id === prop) {
+        return i;
+      }
+    }
+  }
+}
