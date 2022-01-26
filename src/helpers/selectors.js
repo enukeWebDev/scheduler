@@ -19,7 +19,7 @@ export function getInterview(state, interview) {
   if (!interview) {
     return null;
   }
-  result["students"] = interview.student;
+  result["student"] = interview.student;
   result["interviewer"] = interviewers[interview.interviewer];
 
   return result;

@@ -139,9 +139,10 @@ export default function Application(props) {
     deleteInterview
   } = useApplicationData();
 
-  const interviewers = getInterviewersForDay(state, state.day);
-  const appointments = getAppointmentsForDay(state, state.day);
+  console.log('this one', state.days)
 
+  const appointments = getAppointmentsForDay(state, state.day);
+  const interviewers = getInterviewersForDay(state, state.day);
 
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview)
@@ -156,7 +157,7 @@ export default function Application(props) {
         bookInterview={bookInterview}
         deleteInterview={deleteInterview}
       />
-    );
+    )
   });
 
 

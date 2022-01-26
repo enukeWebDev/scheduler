@@ -10,7 +10,7 @@ import Confirm from "components/Appointment/Confirm";
 import Error from "components/Appointment/Error";
 
 import useVisualMode from "hooks/useVisualMode";
-import useApplicationData from "hooks/useApplicationData";
+//import useApplicationData from "hooks/useApplicationData";
 
 
 
@@ -54,7 +54,12 @@ export default function Appointment(props) {
     transition(CONFIRM);
   }
 
+  function edit() {
+    transition(EDIT);
+  }
+
   //Jan. 24 - above
+  console.log(props.interview)
 
   return (
     <article className="appointment">
@@ -68,7 +73,7 @@ export default function Appointment(props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={confirmDeleteInterview}
-          onEdit={() => transition(EDIT)}
+          onEdit={edit}
         />
       )}
 
