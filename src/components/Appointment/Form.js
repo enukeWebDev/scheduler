@@ -11,6 +11,7 @@ export default function Form(props) {
   const reset = () => {
     setStudent("");
     setInterviewer(null);
+    setError("");
   }
 
   const cancel = () => {
@@ -20,12 +21,12 @@ export default function Form(props) {
 
   function saveErr() {
     if (student === "") {
-      setError("Can't leave blank.")
+      setError("Student name cannot be blank")
       return;
     }
 
     if (interviewer === null) {
-      setError("Please select.");
+      setError("Please select an interviewer.");
       return;
     }
     props.onSave(student, interviewer);
