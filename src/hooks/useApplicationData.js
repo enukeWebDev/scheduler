@@ -17,6 +17,7 @@ function reducer(state, action) {
       }
 
     case SET_APPLICATION_DATA:
+      console.log(`Here`, action)
       return {
         ...state,
         days: action.days,
@@ -78,7 +79,7 @@ export default function useApplicationData(initial) {
   const [state, dispatch] = useReducer(reducer, {
     day: "Monday",
     days: [],
-    appointnments: {},
+    appointments: {},
     interviewers: {}
   })
 
