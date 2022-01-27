@@ -4,6 +4,8 @@ Using the latest tools and techniques, we build and test a React application tha
 
 This project implemented the stretch exercise using reducers with react and updating spots remaining with reducers.
 
+!["The Overview of the App"](https://github.com/enukeWebDev/scheduler/blob/master/docs/App.png?raw=true)
+
 Functional Requirements:
 
 Development focuses on a single page application (SPA) called Interview Scheduler, built using React.
