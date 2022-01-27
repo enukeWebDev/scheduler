@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useReducer } from "react";
-import searchDayByAppointment from "helpers/selectors";
+import findDayByAppointment from "helpers/selectors";
 
 const SET_DAY = "SET_DAY";
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
@@ -10,20 +10,22 @@ const SPOT_AVAILABLE = "SPOT_AVAILABLE";
 
 function reducer(state, action) {
   switch (action.type) {
-    case SET_DAY:
+
+    case SET_DAY: {
       return {
         ...state,
         day: action.day
       }
+    }
 
-    case SET_APPLICATION_DATA:
-      console.log(`Here`, action)
+    case SET_APPLICATION_DATA: {
       return {
         ...state,
         days: action.days,
         appointments: action.appointments,
         interviewers: action.interviewers
       }
+    }
 
     case SET_INTERVIEW: {
       return {
@@ -39,8 +41,8 @@ function reducer(state, action) {
       }
     }
 
-    case SPOT_AVAILABLE:
-      const idDay = searchDayByAppointment(action.id, state);
+    case SPOT_AVAILABLE: {
+      const idDay = findDayByAppointment(action.id, state);
       const idAppointment = state.days[idDay].appointments;
       let availability = 0;
 
@@ -66,11 +68,13 @@ function reducer(state, action) {
           }
         })
       }
+    }
 
-    default:
+    default: {
       throw new Error(
-        `Action not supoprted: ${action.type}`
+        `This action is not allowed - ${action.type} - please try again!`
       );
+    }
   }
 }
 
@@ -87,11 +91,10 @@ export default function useApplicationData(initial) {
     dispatch({ type: SET_DAY, day });
   }
 
-
   useEffect(() => {
     const days = axios.get("/api/days");
-    const appointments = axios.get("/api/appointments");//s
-    const interviewers = axios.get("/api/interviewers");//s
+    const appointments = axios.get("/api/appointments");
+    const interviewers = axios.get("/api/interviewers");
 
     Promise.all([
       Promise.resolve(days),
@@ -110,7 +113,6 @@ export default function useApplicationData(initial) {
 
 
   function bookInterview(id, interview) {
-    //console.log(id, interview);
 
     const appointment = {
       ...state.appointments[id],
@@ -128,7 +130,6 @@ export default function useApplicationData(initial) {
         dispatch({ type: SPOT_AVAILABLE, id: id })
       })
   }
-
 
   function deleteInterview(id) {
 

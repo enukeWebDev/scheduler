@@ -10,8 +10,6 @@ import Confirm from "components/Appointment/Confirm";
 import Error from "components/Appointment/Error";
 
 import useVisualMode from "hooks/useVisualMode";
-//import useApplicationData from "hooks/useApplicationData";
-
 
 
 const EMPTY = "EMPTY";
@@ -30,9 +28,8 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-  //Jan. 24 - below
-
   function save(name, interviewer) {
+
     const interview = {
       student: name,
       interviewer
@@ -44,6 +41,7 @@ export default function Appointment(props) {
   }
 
   function deleteAppointment() {
+
     transition(DELETE, true);
     props.deleteInterview(props.id)
       .then(() => transition(EMPTY))
@@ -58,15 +56,12 @@ export default function Appointment(props) {
     transition(EDIT);
   }
 
-  //Jan. 24 - above
-  console.log(props.interview)
-
   return (
     <article className="appointment">
       <Header time={props.time} />
+
       {mode === EMPTY && (
         <Empty onAdd={() => transition(CREATE)} />)}
-
 
       {mode === SHOW && (
         <Show
