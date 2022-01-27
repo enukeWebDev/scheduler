@@ -12,7 +12,7 @@ Screenshots of the App:
 
 !["Warning message when no interviewer is selected"](https://github.com/enukeWebDev/scheduler/blob/master/docs/NoInterviewerSelected.png?raw=true)
 
-A short gif clip of the App:
+A short GIF clip of the App:
 
 Delete - <a href="https://imgflip.com/gif/62yg4u">via Imgflip</a> <br />
 Add - <a href="https://imgflip.com/gif/62yh95">via Imgflip</a>
