@@ -14,7 +14,12 @@ Screenshots of the App:
 
 A short gif clip of the App:
 
-<a href="https://imgflip.com/gif/62yg4u">via Imgflip</a>
+Delete - <a href="https://imgflip.com/gif/62yg4u">via Imgflip</a>
+Add - <a href="https://imgflip.com/gif/62yh95">via Imgflip</a>
+    - <a href="https://imgflip.com/gif/62yiqz">via Imgflip</a>
+Edit - <a href="https://imgflip.com/gif/62yifx">via Imgflip</a>
+
+
 
 
 Functional Requirements:
