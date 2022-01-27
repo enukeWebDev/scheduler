@@ -30,6 +30,8 @@ export function getInterviewersForDay(state, day) {
   const interviewers = state.interviewers;
   const result = [];
 
+  console.log(`This one`, interviewers);
+
   for (let weekday of days) {
     if (weekday.name === day) {
       for (let interviewersDay of weekday.interviewers) {
