@@ -2,11 +2,15 @@ import { useState } from "react";
 
 export default function useVisualMode(initial) {
 
-  const [mode, setMode] = useState(initial);
+
   const [history, setHistory] = useState([initial]);
 
-  //This saves the mode history & set the new mode
-  //This allows the back function to remember the last mode
+  /**
+   * This saves the mode history & set the new mode
+   * This allows the back function to remember the last mode
+   * @param {*} newMode 
+   * @param {*} replace 
+   */
   const transition = (newMode, replace = false) => {
 
     if (replace) {
@@ -14,33 +18,24 @@ export default function useVisualMode(initial) {
     } else {
       setHistory((prev) => [...prev, newMode]);
     }
-    setMode(newMode);
   }
 
-  //This goes back to the last mode the user in
-  //This prevents the user from deleting thr initiial history
+  /**
+   * This goes back to the last mode the user in
+   * This prevents the user from deleting thr initiial history
+   * @returns 
+   */
   const back = () => {
 
-    if (history.length > 1) {
-      history.pop();
-      setHistory(history);
-      setMode(history[history.length - 1]);
-    } else {
-      setMode(mode);
+    if (history.length < 2) {
+      return
     }
 
-    //This will compile with warnings
-    // setHistory((prev) => {
-    //   if (prev.length === 1) {
-    //     return [...prev];
-    //   }
-
-    //   const lastMode = [...prev.slice(0, -1)];
-    //   setMode(lastMode[lastMode.length - 1]);
-
-    //   return lastMode;
-    // })
+    const newHistory = [...history.slice(0, -1)];
+    setHistory(newHistory);
   }
+
+  const mode = history[history.length - 1]
 
   return { mode, transition, back };
 }

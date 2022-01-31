@@ -1,3 +1,9 @@
+/**
+ * Get an appointment for the day
+ * @param {*} state 
+ * @param {*} day 
+ * @returns 
+ */
 export function getAppointmentsForDay(state, day) {
 
   const days = state.days;
@@ -14,6 +20,12 @@ export function getAppointmentsForDay(state, day) {
   return result;
 }
 
+/**
+ * Attaches an interviewer object to the interview
+ * @param {*} state 
+ * @param {*} interview 
+ * @returns 
+ */
 export function getInterview(state, interview) {
 
   const interviewers = state.interviewers;
@@ -27,6 +39,12 @@ export function getInterview(state, interview) {
   return result;
 }
 
+/**
+ * Get an interview for the day
+ * @param {*} state 
+ * @param {*} day 
+ * @returns 
+ */
 export function getInterviewersForDay(state, day) {
 
   const days = state.days;
@@ -43,6 +61,12 @@ export function getInterviewersForDay(state, day) {
   return result;
 }
 
+/**
+ * Function to find day by appointment
+ * @param {*} id 
+ * @param {*} state 
+ * @returns 
+ */
 export default function findDayByAppointment(id, state) {
   for (let i = 0; i < state.days.length; i++) {
     for (let prop of state.days[i].appointments) {

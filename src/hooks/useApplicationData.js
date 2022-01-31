@@ -89,7 +89,9 @@ export default function useApplicationData(initial) {
     dispatch({ type: SET_DAY, day });
   }
 
-  //Request relevant data from the server and adds it to the current state
+  /**
+   * Request relevant data from the server and adds it to the current state
+   */
   useEffect(() => {
     const days = axios.get("/api/days");
     const appointments = axios.get("/api/appointments");
@@ -110,9 +112,13 @@ export default function useApplicationData(initial) {
     })
   }, [])
 
-
-  //Book an interview - this will update 
-  //the database after an interview is booked
+  /**
+   * Book an interview - this will update the database after an 
+   * interview is booked
+   * @param {*} id 
+   * @param {*} interview 
+   * @returns 
+   */
   function bookInterview(id, interview) {
 
     const appointment = {
@@ -132,8 +138,12 @@ export default function useApplicationData(initial) {
       })
   }
 
-  //Delete or cancel an interview - this will update
-  //the database after the an interview is delete or cancel
+  /**
+   * Delete or cancel an interview - this will update
+   * the database after the an interview is delete or cancel
+   * @param {*} id 
+   * @returns 
+   */
   function deleteInterview(id) {
 
     const appointment = {
