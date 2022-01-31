@@ -8,7 +8,7 @@ Screenshots of the App:
 
 !["The Overview of the App"](https://github.com/enukeWebDev/scheduler/blob/master/docs/App.png?raw=true)
 
-!["The Jest Test"](https://github.com/enukeWebDev/scheduler/blob/master/docs/JestTest.png?raw=true)
+!["Edit"](https://github.com/enukeWebDev/scheduler/blob/master/docs/Edit.png?raw=true)
 
 !["Warning message when no interviewer is selected"](https://github.com/enukeWebDev/scheduler/blob/master/docs/NoInterviewerSelected.png?raw=true)
 
@@ -29,13 +29,26 @@ Data is persisted by the API server using a PostgreSQL database.
 The client application communicates with an API server over HTTP, using the JSON format.
 Jest tests are used through the development of the project.
 
-Technical Specifications:
+Stack:
 
-React
-Webpack, Babel
-Axios, WebSockets
-Axios
-Storybook, Webpack Dev Server, Jest, Testing Library, Cypress
+- React
+- Javascript
+- Babel
+- Axios
+- Storybook
+- Webpack Dev Server
+- Jest Testing Library
+- Cypress
+
+Dependencies:
+
+- axios
+- classnames
+- cypress
+- react
+- react-dom
+- react-scripts
+
 
 The Scheduler client application created using Create React App. Express is the basis for the Scheduler API server application.
 

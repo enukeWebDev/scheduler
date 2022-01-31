@@ -54,9 +54,7 @@ function reducer(state, action) {
 
       return {
         ...state,
-        //1st parameter should be the day, 2 parameter - current index
         days: state.days.map((id, appointmentDay) => {
-          // days: state.days.map((id) => {
           if (appointmentDay !== idDay) {
             return id;
           }
