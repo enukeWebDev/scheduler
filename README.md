@@ -17,7 +17,7 @@ A short GIF clip of the App:
 Delete - <a href="https://imgflip.com/gif/62yg4u">via Imgflip</a> <br />
 Add - <a href="https://imgflip.com/gif/62yh95">via Imgflip</a>
     - <a href="https://imgflip.com/gif/62yiqz">via Imgflip</a> <br />
-Edit - <a href="https://imgflip.com/gif/62yifx">via Imgflip</a>
+
 
 
 
