@@ -52,6 +52,8 @@ Dependencies:
 
 The Scheduler client application created using Create React App. Express is the basis for the Scheduler API server application.
 
+Set up of Scheduler API Server - https://github.com/enukeWebDev/scheduler-api
+
 Both servers run concurrently; requests are proxied from the Webpack development server to the API server.
 
 ## Setup

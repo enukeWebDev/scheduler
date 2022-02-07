@@ -23,19 +23,15 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
-  // export default function Appointment(student) {
+
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
   function save(name, interviewer) {
-    // function save(student, interviewer) {
-
 
     const interview = {
       student: name,
-      // //student: student,
-      // name: student,
       interviewer
     };
     transition(SAVING);
